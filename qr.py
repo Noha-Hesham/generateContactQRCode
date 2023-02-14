@@ -51,6 +51,9 @@ class QRCode:
             position = contact["Position"]
             mail = contact["Email"]
             phoneNum = contact["Phone_Number"]
+            url = contact["Url"]
+            country = contact["Country"]
+            city = contact["City"]
 
             #(name, reading, email, phone, videophone, memo, nickname, birthday, url, pobox, roomno, houseno, city, prefecture, zipcode, country)
             qrcode = helpers.make_mecard(
@@ -58,9 +61,9 @@ class QRCode:
                 email= mail,
                 phone= phoneNum,
                 nickname= position,
-                url= 'penta-b.com',
-                country= 'Egypt',
-                city= 'Cairo',
+                url= url,
+                country= country,
+                city= city,
             )
             
             qrcode.designator
@@ -74,12 +77,3 @@ class QRCode:
 
 
 
-# from segno import helpers
-# qrcode = helpers.make_mecard(name='Doe,John', email='me@example.org', phone='+1234567')
-# qrcode.designator
-# '3-L'
-# # Some params accept multiple values, like email, phone, url
-# qrcode = helpers.make_mecard(name='Doe,John',
-#                               email=('me@example.org', 'another@example.org'),
-#                               url=['http://www.example.org', 'https://example.org/~joe'])
-# qrcode.save('my-mecard.svg', scale=4)

@@ -16,7 +16,6 @@ class Excel:
         finalContactList = []
         contactsDF = pd.read_excel(file)
         contactsSTR = contactsDF.to_json(orient='records')
-        
         contactsList=ast.literal_eval(contactsSTR)
         
         for contact in contactsList:

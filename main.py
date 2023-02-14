@@ -10,7 +10,6 @@ if __name__ == '__main__':
 
     excel = Excel()
     contactList = excel.reader()
-    
     QR = QRCode()
     QR.generate(contactList)
     
