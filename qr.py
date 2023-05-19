@@ -1,6 +1,7 @@
 from segno import helpers
 import os
 import shutil
+from urllib.parse import unquote
 
 class QRCode:
     def __init__(self):
@@ -45,13 +46,14 @@ class QRCode:
 
 
     def generate(self, contactList):
+        
         for contact in contactList:
-
+            
             name = contact["Name"]
             position = contact["Position"]
             mail = contact["Email"]
             phoneNum = contact["Phone_Number"]
-            url = contact["Url"]
+            url = contact["Url"].replace("\/","/")
             country = contact["Country"]
             city = contact["City"]
 
@@ -61,9 +63,9 @@ class QRCode:
                 email= mail,
                 phone= phoneNum,
                 nickname= position,
-                url= url,
+                url= unquote(url),
                 country= country,
-                city= city,
+                city= city
             )
             
             qrcode.designator
